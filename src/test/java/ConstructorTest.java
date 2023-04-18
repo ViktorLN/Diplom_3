@@ -25,7 +25,7 @@ public class ConstructorTest {
         LoginPage loginPage = new LoginPage(driver);
         mainPage.clickLoginPage();
         loginPage.clickLogo();
-        boolean actual = mainPage.checkVisibleFirstBun();
+        boolean actual = mainPage.checkSelectedBunChapter();
         Assert.assertEquals("Переход не выполнен",expected, actual);
     }
 
@@ -37,7 +37,7 @@ public class ConstructorTest {
         LoginPage loginPage = new LoginPage(driver);
         mainPage.clickLoginAccount();
         loginPage.clickConstructor();
-        boolean actual = mainPage.checkVisibleFirstBun();
+        boolean actual = mainPage.checkSelectedBunChapter();
         Assert.assertEquals("Переход не выполнен",expected, actual);
     }
 
@@ -48,7 +48,7 @@ public class ConstructorTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.clickSauceChapter();
         mainPage.clickBunChapter();
-        boolean actual = mainPage.checkVisibleFirstBun();
+        boolean actual = mainPage.checkSelectedBunChapter();
         Assert.assertEquals("Переход в раздел не произошел",expected, actual);
     }
 
@@ -58,7 +58,7 @@ public class ConstructorTest {
         driver.get("https://stellarburgers.nomoreparties.site/");
         MainPage mainPage = new MainPage(driver);
         mainPage.clickSauceChapter();
-        boolean actual = mainPage.checkVisibleFirstSauce();
+        boolean actual = mainPage.checkSelectedSauceChapter();
         Assert.assertEquals("Переход в раздел не произошел",expected, actual);
     }
 
@@ -68,7 +68,7 @@ public class ConstructorTest {
         driver.get("https://stellarburgers.nomoreparties.site/");
         MainPage mainPage = new MainPage(driver);
         mainPage.clickFillingChapter();
-        boolean actual = mainPage.checkVisibleFirstFilling();
+        boolean actual = mainPage.checkSelectedFillingChapter();
         Assert.assertEquals("Переход в раздел не произошел",expected, actual);
     }
 

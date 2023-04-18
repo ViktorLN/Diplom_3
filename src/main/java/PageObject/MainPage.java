@@ -2,13 +2,6 @@ package PageObject;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.sql.SQLOutput;
-import java.time.Duration;
 
 public class MainPage {
     private final WebDriver driver;
@@ -36,18 +29,18 @@ public class MainPage {
         driver.findElement(loginAccountButton).click();
     }
 
-    public boolean checkVisibleFirstBun(){
+    public boolean checkSelectedBunChapter(){
         waitMeMyFriend();
         boolean result = driver.findElement(bunChapter).getAttribute("class").indexOf("tab_tab_type_current")>0;
         return result;
     }
-    public boolean checkVisibleFirstSauce(){
+    public boolean checkSelectedSauceChapter(){
         waitMeMyFriend();
         boolean result = driver.findElement(sauceChapter).getAttribute("class").indexOf("tab_tab_type_current")>0;
         return result;
     }
 
-    public boolean checkVisibleFirstFilling(){
+    public boolean checkSelectedFillingChapter(){
         waitMeMyFriend();
         boolean result = driver.findElement(fillingChapter).getAttribute("class").indexOf("tab_tab_type_current")>0;
         return result;
