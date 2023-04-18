@@ -43,7 +43,6 @@ public class ConstructorTest {
 
     @Test
     public void checkBunChapterTest(){
-        driver.get("https://stellarburgers.nomoreparties.site/");
         boolean expected = true;
         driver.get("https://stellarburgers.nomoreparties.site/");
         MainPage mainPage = new MainPage(driver);
@@ -55,7 +54,6 @@ public class ConstructorTest {
 
     @Test
     public void checkSauceChapterTest(){
-        driver.get("https://stellarburgers.nomoreparties.site/");
         boolean expected = true;
         driver.get("https://stellarburgers.nomoreparties.site/");
         MainPage mainPage = new MainPage(driver);
@@ -66,7 +64,6 @@ public class ConstructorTest {
 
     @Test
     public void checkFillingChapterTest(){
-        driver.get("https://stellarburgers.nomoreparties.site/");
         boolean expected = true;
         driver.get("https://stellarburgers.nomoreparties.site/");
         MainPage mainPage = new MainPage(driver);

@@ -32,7 +32,7 @@ public class LoginTest {
         UserInfo userInfo;
         userInfo = response.as(UserInfo.class);
         //Сохраняем токен, для удаления пользовтеля после завершения тестов
-        myToken = userInfo.getAccessToken().substring(7, userInfo.getAccessToken().length());
+        myToken = userInfo.getAccessToken().substring(7);
     }
 
     @Test

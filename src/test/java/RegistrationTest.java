@@ -2,6 +2,7 @@ import PageObject.LoginPage;
 import PageObject.MainPage;
 import PageObject.RegistrationPage;
 import io.restassured.RestAssured;
+import org.apache.http.io.SessionOutputBuffer;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -40,18 +41,6 @@ public class RegistrationTest {
         String actual = loginPage.checkExitButton();
         Assert.assertEquals("Регистрация не выполнена выполнен",expected, actual);
 
-        // Удаляем пользователя
-        UserInfo userInfo =
-                given()
-                        .header("Content-type", "application/json")
-                        .body("{\"email\": \"levkin_166@gmail.com\", \"password\": \"123456\"}")
-                        .post("api/auth/login").as(UserInfo.class);
-
-
-        myToken = userInfo.getAccessToken().substring(7, userInfo.getAccessToken().length());
-        given()
-                .auth().oauth2(myToken)
-                .delete("api/auth/user");
     }
 
     @Test
@@ -69,6 +58,21 @@ public class RegistrationTest {
 
     @After
     public void teardown() {
+        // Удаляем пользователя
+        UserInfo userInfo =
+                given()
+                        .header("Content-type", "application/json")
+                        .body("{\"email\": \"levkin_166@gmail.com\", \"password\": \"123456\"}")
+                        .post("api/auth/login").as(UserInfo.class);
+        if (userInfo.getAccessToken()==null){
+            System.out.println("Пользователь не создавался");
+        }
+        else {
+            myToken = userInfo.getAccessToken().substring(7);
+            given()
+                    .auth().oauth2(myToken)
+                    .delete("api/auth/user");
+        }
         // Закрытие браузера
         driver.quit();
     }
