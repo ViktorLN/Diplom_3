@@ -73,6 +73,7 @@ public class RegistrationTest {
                     .auth().oauth2(myToken)
                     .delete("api/auth/user");
         }
+
         // Закрытие браузера
         driver.quit();
     }

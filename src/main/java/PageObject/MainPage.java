@@ -38,16 +38,19 @@ public class MainPage {
 
     public boolean checkVisibleFirstBun(){
         waitMeMyFriend();
-        return driver.findElement(firstBun).isDisplayed();
+        boolean result = driver.findElement(bunChapter).getAttribute("class").indexOf("tab_tab_type_current")>0;
+        return result;
     }
     public boolean checkVisibleFirstSauce(){
         waitMeMyFriend();
-        return driver.findElement(firstSauce).isDisplayed();
+        boolean result = driver.findElement(sauceChapter).getAttribute("class").indexOf("tab_tab_type_current")>0;
+        return result;
     }
 
     public boolean checkVisibleFirstFilling(){
         waitMeMyFriend();
-        return driver.findElement(firstFilling).isDisplayed();
+        boolean result = driver.findElement(fillingChapter).getAttribute("class").indexOf("tab_tab_type_current")>0;
+        return result;
     }
 
 
@@ -65,7 +68,6 @@ public class MainPage {
         waitMeMyFriend();
         driver.findElement(fillingChapter).click();
     }
-
 
 
     public void waitMeMyFriend()  {
